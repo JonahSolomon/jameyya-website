@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jameyya — Money Pools & Chores</title>
+<meta name="description" content="The modern way to manage Jameyya money pools and shared chores with the people you trust. Built for the GCC, MENA, and beyond." />
+<meta property="og:title" content="Jameyya — Money Pools & Chores" />
+<meta property="og:description" content="Run money pools and rotating chores with family, friends, and coworkers. Fair, transparent, and built for trust." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://jameyya.com" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230D9488'/%3E%3Ctext x='50' y='72' font-family='-apple-system, sans-serif' font-size='65' font-weight='800' fill='%23FACC15' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --teal: #0D9488;
+    --teal-dark: #0F766E;
+    --teal-light: #CCFBF1;
+    --yellow: #FACC15;
+    --bg: #FAFAF9;
+    --text: #1C1917;
+    --text-muted: #57534E;
+    --border: #E7E5E4;
+    --white: #FFFFFF;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+  nav {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+    background: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  nav .container { display: flex; align-items: center; justify-content: space-between; }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    font-size: 22px;
+    color: var(--teal);
+    text-decoration: none;
+  }
+  .logo-mark {
+    width: 36px;
+    height: 36px;
+    background: var(--teal);
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--yellow);
+    font-weight: 800;
+    font-size: 22px;
+  }
+  nav ul { list-style: none; display: flex; gap: 28px; }
+  nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+  }
+  nav a:hover { color: var(--teal); }
+  .hero {
+    padding: 80px 0 60px;
+    text-align: center;
+  }
+  .badge {
+    display: inline-block;
+    padding: 6px 14px;
+    background: var(--teal-light);
+    color: var(--teal-dark);
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+  h1 {
+    font-size: clamp(36px, 6vw, 60px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+    color: var(--text);
+  }
+  h1 .accent { color: var(--teal); }
+  .hero p.lead {
+    font-size: clamp(17px, 2vw, 21px);
+    color: var(--text-muted);
+    max-width: 640px;
+    margin: 0 auto 36px;
+  }
+  .cta-row {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+  .btn {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn-primary {
+    background: var(--teal);
+    color: var(--white);
+  }
+  .btn-primary:hover {
+    background: var(--teal-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(13, 148, 136, 0.25);
+  }
+  .btn-secondary {
+    background: var(--white);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .btn-secondary:hover { border-color: var(--teal); color: var(--teal); }
+  .coming-soon {
+    margin-top: 12px;
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+  section { padding: 60px 0; }
+  .section-title {
+    font-size: clamp(28px, 4vw, 38px);
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+  .section-sub {
+    text-align: center;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 50px;
+    font-size: 17px;
+  }
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+  .feature {
+    background: var(--white);
+    padding: 28px;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .feature:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  }
+  .feature-emoji {
+    font-size: 32px;
+    margin-bottom: 14px;
+    display: block;
+  }
+  .feature h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .feature p {
+    color: var(--text-muted);
+    font-size: 15px;
+  }
+  .how-it-works {
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 32px;
+    margin-top: 30px;
+  }
+  .step { text-align: center; }
+  .step-number {
+    width: 44px;
+    height: 44px;
+    background: var(--teal);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 18px;
+    margin: 0 auto 16px;
+  }
+  .step h4 { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+  .step p { color: var(--text-muted); font-size: 15px; }
+  .for-who {
+    background: linear-gradient(135deg, var(--teal-light) 0%, #f0fdfa 100%);
+    border-radius: 24px;
+    padding: 48px 32px;
+    margin: 40px 0;
+    text-align: center;
+  }
+  .for-who h2 {
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 800;
+    margin-bottom: 16px;
+    color: var(--teal-dark);
+  }
+  .for-who p {
+    font-size: 17px;
+    color: var(--text);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .disclaimer {
+    background: #FEFCE8;
+    border: 1px solid #FDE68A;
+    border-radius: 12px;
+    padding: 24px;
+    margin: 40px auto;
+    max-width: 800px;
+    font-size: 14px;
+    color: #713F12;
+  }
+  .disclaimer strong { display: block; margin-bottom: 8px; color: #92400E; }
+  footer {
+    background: var(--text);
+    color: #A8A29E;
+    padding: 50px 0 30px;
+    margin-top: 60px;
+  }
+  footer .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 30px;
+  }
+  footer .footer-brand p {
+    margin-top: 10px;
+    font-size: 14px;
+    max-width: 340px;
+  }
+  footer h5 {
+    color: var(--white);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 14px;
+  }
+  footer ul { list-style: none; }
+  footer ul li { margin-bottom: 8px; }
+  footer ul a {
+    color: #A8A29E;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  footer ul a:hover { color: var(--yellow); }
+  .footer-bottom {
+    border-top: 1px solid #44403C;
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 13px;
+  }
+  @media (max-width: 720px) {
+    nav ul { display: none; }
+    .hero { padding: 50px 0 40px; }
+    section { padding: 40px 0; }
+    footer .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a href="/" class="logo">
+      <span class="logo-mark">J</span>
+      Jameyya
+    </a>
+    <ul>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#how">How it Works</a></li>
+      <li><a href="/support.html">Support</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <span class="badge">Coming soon to the App Store</span>
+    <h1>Money pools & shared chores,<br /><span class="accent">fairly rotated.</span></h1>
+    <p class="lead">
+      Jameyya is the modern, trustworthy way to manage rotating savings groups (جمعية) and shared responsibilities with the people who matter — your family, friends, and coworkers.
+    </p>
+    <div class="cta-row">
+      <a href="#features" class="btn btn-primary">See Features</a>
+      <a href="/support.html" class="btn btn-secondary">Get in Touch</a>
+    </div>
+    <p class="coming-soon">📱 iOS launch · Q3 2026 · Android coming later</p>
+  </div>
+</section>
+
+<section id="features">
+  <div class="container">
+    <h2 class="section-title">Everything you need. Nothing you don't.</h2>
+    <p class="section-sub">Built for the way real groups actually work.</p>
+    <div class="features-grid">
+
+      <div class="feature">
+        <span class="feature-emoji">💰</span>
+        <h3>Money Pools (Jameyya)</h3>
+        <p>Track contributions, payouts, and cycles. Built-in commitment agreements for serious groups.</p>
+      </div>
+
+      <div class="feature">
+        <span class="feature-emoji">🔄</span>
+        <h3>Rotating Chores</h3>
+        <p>Set frequencies, invite the group, and let Jameyya handle who's next — automatically.</p>
+      </div>
+
+      <div class="feature">
+        <span class="feature-emoji">📅</span>
+        <h3>iOS Calendar Sync</h3>
+        <p>Your turns and payment due dates show up in your calendar with smart reminders.</p>
+      </div>
+
+      <div class="feature">
+        <span class="feature-emoji">💬</span>
+        <h3>In-app Comments</h3>
+        <p>Real-time discussions and @-mentions on every turn and contribution. No more scattered WhatsApp threads.</p>
+      </div>
+
+      <div class="feature">
+        <span class="feature-emoji">🤝</span>
+        <h3>Co-Admins</h3>
+        <p>Share the admin burden with trusted members. Larger groups, smoother coordination.</p>
+      </div>
+
+      <div class="feature">
+        <span class="feature-emoji">🏖️</span>
+        <h3>Vacation Mode</h3>
+        <p>Going away? Mark your dates and the rotation skips you fairly. No awkward asks.</p>
+      </div>
+
+      <div class="feature">
+        <span class="feature-emoji">🎯</span>
+        <h3>Holiday Auto-Skip</h3>
+        <p>Built-in holiday packs for UAE, Saudi, Egypt, US, UK, India, Pakistan, and more.</p>
+      </div>
+
+      <div class="feature">
+        <span class="feature-emoji">📊</span>
+        <h3>Full Audit Trail</h3>
+        <p>Export complete history as CSV or PDF. Perfect for record-keeping, tax, and dispute resolution.</p>
+      </div>
+
+      <div class="feature">
+        <span class="feature-emoji">🔒</span>
+        <h3>Privacy Controls</h3>
+        <p>Hide amounts, hide payment status, hide history — you decide what your group sees.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="how" class="how-it-works">
+  <div class="container">
+    <h2 class="section-title">How Jameyya works</h2>
+    <p class="section-sub">From scattered chaos to organized trust in three steps.</p>
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-number">1</div>
+        <h4>Create a group or pool</h4>
+        <p>Pick a name, set the frequency or contribution amount, and customize how it looks.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">2</div>
+        <h4>Invite your people</h4>
+        <p>Share a link via WhatsApp. They join in seconds — no account required to start.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">3</div>
+        <h4>Let Jameyya handle the rest</h4>
+        <p>Smart reminders, fair rotation, transparent history. You stay focused on the people, not the spreadsheet.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="for-who">
+      <h2>Built for the way we actually share</h2>
+      <p>
+        Whether you call it Jameyya, Committee, Chit, Hagbad, or rotating savings — these traditions are part of everyday life across the GCC, MENA, South Asia, and many global diaspora communities. Jameyya brings that trust online, without losing the human warmth that makes it work.
+      </p>
+    </div>
+
+    <div class="disclaimer">
+      <strong>⚠️ Important: Jameyya is a tracking tool, not a financial service.</strong>
+      Jameyya does not hold, transfer, or process any money. All actual transfers between members happen outside the app, directly between trusted parties. Always exercise due diligence and only join pools with people you trust.
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo" style="color: var(--white);">
+          <span class="logo-mark">J</span>
+          Jameyya
+        </div>
+        <p>The modern way to run money pools and shared chores with the people you trust. Made with care in the UAE.</p>
+      </div>
+      <div>
+        <h5>Product</h5>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#how">How it Works</a></li>
+          <li><a href="/support.html">Support</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="/privacy.html">Privacy Policy</a></li>
+          <li><a href="/terms.html">Terms of Service</a></li>
+          <li><a href="mailto:support@jameyya.com">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Jameyya. All rights reserved.</div>
+      <div>support@jameyya.com</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
