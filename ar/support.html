@@ -5,6 +5,236 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>الدعم — جمعية</title>
 <meta name="description" content="احصل على المساعدة لتطبيق جمعية" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23F6F1E7'/%3E%3Crect x='23' y='31' width='38' height='38' rx='8.4' transform='rotate(45 42 50)' fill='%230D9488'/%3E%3Crect x='39' y='31' width='38' height='38' rx='8.4' transform='rotate(45 60 50)' fill='%23F5B301'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --teal: #0D9488;
+    --teal-dark: #0F766E;
+    --teal-light: #CCFBF1;
+    --bg: #FAFAF9;
+    --text: #1C1917;
+    --text-muted: #57534E;
+    --border: #E7E5E4;
+    --white: #FFFFFF;
+  }
+  body {
+    font-family: 'IBM Plex Sans Arabic', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.8;
+    direction: rtl;
+    text-align: right;
+  }
+  .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+  nav {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+    background: var(--white);
+  }
+  nav .container { display: flex; align-items: center; justify-content: space-between; }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    font-size: 22px;
+    color: var(--teal);
+    text-decoration: none;
+  }
+  .logo-mark {
+    width: 36px;
+    height: 36px;
+    display: block;
+    flex-shrink: 0;
+  }
+  .back-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .back-link:hover { color: var(--teal); }
+  main { padding: 60px 0; }
+  h1 {
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+  }
+  .intro {
+    font-size: 18px;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+  }
+  .contact-card {
+    background: linear-gradient(135deg, var(--teal-light) 0%, #f0fdfa 100%);
+    padding: 36px;
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  .contact-card h2 {
+    font-size: 22px;
+    margin-bottom: 12px;
+    color: var(--teal-dark);
+  }
+  .contact-card p {
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+  .contact-btn {
+    display: inline-block;
+    padding: 14px 28px;
+    background: var(--teal);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: background 0.15s ease, transform 0.15s ease;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    direction: ltr;
+  }
+  .contact-btn:hover {
+    background: var(--teal-dark);
+    transform: translateY(-1px);
+  }
+  h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-top: 36px;
+    margin-bottom: 16px;
+    color: var(--teal-dark);
+  }
+  .faq-item {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px;
+    margin-bottom: 14px;
+  }
+  .faq-item h3 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .faq-item p {
+    color: var(--text-muted);
+    font-size: 15px;
+  }
+  a { color: var(--teal); }
+  footer {
+    background: var(--text);
+    color: #A8A29E;
+    padding: 30px 0;
+    margin-top: 60px;
+    text-align: center;
+    font-size: 13px;
+  }
+  footer a { color: #A8A29E; text-decoration: none; margin: 0 12px; }
+  footer a:hover { color: #FACC15; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a href="/ar/" class="logo">
+      <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><defs><clipPath id="lm_a"><rect x="43" y="33" width="34" height="34" rx="7.5" transform="rotate(45 60 50)"/></clipPath></defs><rect x="25" y="33" width="34" height="34" rx="7.5" transform="rotate(45 42 50)" fill="#0D9488"/><rect x="43" y="33" width="34" height="34" rx="7.5" transform="rotate(45 60 50)" fill="#F5B301"/><g clip-path="url(#lm_a)"><rect x="25" y="33" width="34" height="34" rx="7.5" transform="rotate(45 42 50)" fill="#115E59"/></g></svg>
+      جمعية
+    </a>
+    <a href="/ar/" class="back-link">→ الرئيسية</a>
+  </div>
+</nav>
+
+<main>
+  <div class="container">
+    <h1>كيف يمكننا مساعدتك؟</h1>
+    <p class="intro">نحن هنا لجعل جمعية يعمل من أجلك. تواصل معنا في أي وقت.</p>
+
+    <div class="contact-card">
+      <h2>📧 تواصل معنا</h2>
+      <p>للاستفسارات أو الملاحظات أو الإبلاغ عن الأخطاء أو أي شيء آخر — راسلنا. عادة نرد خلال ٢٤ ساعة.</p>
+      <a href="mailto:support@jameyya.com" class="contact-btn">support@jameyya.com</a>
+    </div>
+
+    <h2>الأسئلة الشائعة</h2>
+
+    <div class="faq-item">
+      <h3>ما هو جمعية؟</h3>
+      <p>جمعية هو تطبيق جوّال يساعدك على تنظيم جمعيات الادخار الدوري (وتُسمى أيضاً Jameyya، أو لجنة، أو شيت، أو حقباد، أو ROSCA) والمهام المشتركة مع من تثق بهم — مثل العائلة والأصدقاء وزملاء العمل.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>هل يتعامل جمعية مع الأموال الحقيقية؟</h3>
+      <p>لا. جمعية أداة تتبع وتنسيق فقط. تتم جميع التحويلات المالية الفعلية خارج التطبيق، مباشرة بين الأعضاء. نحن لا نحتفظ بأي أموال أو نحوّلها أو نعالجها أبداً.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>هل جمعية مجاني؟</h3>
+      <p>نعم، التطبيق الأساسي مجاني. قد تتطلب بعض الميزات المتقدمة اشتراك Pro في المستقبل. حالياً، جميع الميزات متاحة للمستخدمين المبكرين.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>ما المنصات المدعومة؟</h3>
+      <p>جمعية ينطلق أولاً على iOS. دعم أندرويد مخطط له لإطلاق مستقبلي.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>كيف أدعو الأشخاص إلى مجموعتي؟</h3>
+      <p>كل مجموعة لديها زر مشاركة يفتح ورقة المشاركة على هاتفك. أرسل الرابط عبر واتساب أو البريد أو الرسائل النصية. المستقبلون يضغطون على الرابط وينضمون خلال ثواني — بدون حاجة لإنشاء حساب للبدء.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>ماذا يحدث إذا لم يدفع أحدهم في جمعيتي؟</h3>
+      <p>كمدير، لديك عدة خيارات: إرسال تذكير، أو تحديد المساهمة كمدفوعة خارج التطبيق (إذا استلمت المال شخصياً)، أو تحديدها كمتعثرة. إذا حددتها كمتعثرة، يمكنك اختيار تغطية الفجوة بنفسك، أو تقليل دفعة تلك الدورة، أو إيقاف الجمعية مؤقتاً. القرار لك — جمعية فقط يجعل التتبع سهلاً.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>كيف أحذف حسابي؟</h3>
+      <p>افتح التطبيق، اذهب إلى الإعدادات → الحساب → حذف الحساب. أو راسل <a href="mailto:support@jameyya.com">support@jameyya.com</a> وسنعالج الطلب خلال ٣٠ يوماً.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>هل بياناتي خاصة؟</h3>
+      <p>نعم. لا نبيع بياناتك أبداً، ولا نعرض إعلانات، ولا نشارك المعلومات إلا بما هو لازم لتشغيل التطبيق. اقرأ <a href="/ar/privacy.html">سياسة الخصوصية</a> للتفاصيل الكاملة.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>هل يمكنني تصدير بياناتي؟</h3>
+      <p>نعم. مستخدمو Pro يمكنهم تصدير السجل الكامل للمجموعات والجمعيات كملف CSV أو PDF. مفيد لسجلات الضرائب وحل النزاعات أو ببساطة للاحتفاظ بنسخة خاصة بك.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>لدي طلب ميزة أو ملاحظات. أين أرسلها؟</h3>
+      <p>نحب أن نسمع من المستخدمين. راسل <a href="mailto:support@jameyya.com">support@jameyya.com</a> بأفكارك. كل رسالة يقرأها شخص حقيقي.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <a href="/ar/">الرئيسية</a> ·
+    <a href="/ar/privacy.html">الخصوصية</a> ·
+    <a href="/ar/terms.html">الشروط</a> ·
+    <a href="/ar/support.html">الدعم</a> ·
+    <a href="/support.html">English</a>
+    <p style="margin-top: 14px;">© ٢٠٢٦ جمعية. جميع الحقوق محفوظة.</p>
+  </div>
+</footer>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>الدعم — جمعية</title>
+<meta name="description" content="احصل على المساعدة لتطبيق جمعية" />
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230D9488'/%3E%3Ctext x='50' y='72' font-family='-apple-system, sans-serif' font-size='65' font-weight='800' fill='%23FACC15' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
