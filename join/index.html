@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join a Jameyya | انضم إلى جمعية</title>
+<meta name="robots" content="noindex">
+<style>
+  :root{
+    --teal:#0D9488; --teal-bright:#14B8A6; --gold:#F5B301;
+    --deep:#115E59; --sand:#F6F1E7; --ink:#0B2E2B;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:'Rubik',-apple-system,'Segoe UI',Tahoma,sans-serif;
+    background:var(--sand); color:var(--ink);
+    min-height:100vh; display:flex; align-items:center; justify-content:center;
+    padding:24px; text-align:center;
+  }
+  html[dir="rtl"] body{font-family:'Tajawal','Rubik',Tahoma,sans-serif;}
+  .card{max-width:420px; width:100%;}
+  .mark{display:flex; justify-content:center; margin-bottom:20px;}
+  .wordmark{font-size:34px; font-weight:700; color:var(--deep); letter-spacing:.5px; margin-bottom:6px;}
+  .tag{font-size:15px; color:var(--teal); margin-bottom:28px;}
+  h1{font-size:22px; font-weight:600; margin-bottom:10px;}
+  p.sub{font-size:15px; line-height:1.6; color:#3d5652; margin-bottom:28px;}
+  .btn{
+    display:block; width:100%; padding:16px; border-radius:14px; border:none;
+    font-size:17px; font-weight:600; cursor:pointer; text-decoration:none;
+    font-family:inherit;
+  }
+  .btn-primary{background:var(--teal); color:#fff; margin-bottom:12px;}
+  .btn-primary:active{background:var(--deep);}
+  .btn-secondary{background:transparent; color:var(--deep); border:2px solid var(--teal); margin-bottom:24px;}
+  .hint{font-size:13px; color:#6b807c;}
+  .lang{
+    position:fixed; top:18px; inset-inline-end:18px; background:transparent;
+    border:1px solid var(--teal); color:var(--teal); border-radius:20px;
+    padding:6px 14px; font-size:13px; cursor:pointer; font-family:inherit;
+  }
+  .diamonds{width:72px; height:72px;}
+</style>
+</head>
+<body>
+<button class="lang" id="langBtn" onclick="toggleLang()">عربي</button>
+<div class="card">
+  <div class="mark">
+    <!-- Simple two-diamond motif (placeholder, not the locked BrandMark geometry) -->
+    <svg class="diamonds" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect x="14" y="26" width="46" height="46" rx="10" transform="rotate(45 37 49)" fill="#0D9488"/>
+      <rect x="40" y="26" width="46" height="46" rx="10" transform="rotate(45 63 49)" fill="#F5B301"/>
+      <path d="M50 27.6 L71.4 49 L50 70.4 L28.6 49 Z" fill="#115E59"/>
+    </svg>
+  </div>
+  <div class="wordmark" id="wm">Jameyya</div>
+  <div class="tag" id="tag">Money pools, fairly rotated</div>
+  <h1 id="title">You're invited to join a jameyya!</h1>
+  <p class="sub" id="sub">Someone added you to their money pool on Jameyya. Open the app to accept your invitation.</p>
+  <a class="btn btn-primary" id="openBtn" href="#">Open in Jameyya</a>
+  <a class="btn btn-secondary" id="storeBtn" href="https://apps.apple.com/app/id6786646295">Download on the App Store</a>
+  <div class="hint" id="hint">If the app doesn't open, install it first, then tap your invite link again.</div>
+</div>
+<script>
+  var code = new URLSearchParams(location.search).get('c') || '';
+  var deepLink = 'jameyya://join/' + encodeURIComponent(code);
+  document.getElementById('openBtn').setAttribute('href', deepLink);
+
+  // Auto-attempt to open the app (works when installed; silently fails otherwise)
+  if (code) { setTimeout(function(){ window.location.href = deepLink; }, 400); }
+
+  var strings = {
+    en: {
+      dir:'ltr', lang:'en', btnLabel:'عربي',
+      wm:'Jameyya', tag:'Money pools, fairly rotated',
+      title:"You're invited to join a jameyya!",
+      sub:'Someone added you to their money pool on Jameyya. Open the app to accept your invitation.',
+      open:'Open in Jameyya', store:'Download on the App Store',
+      hint:"If the app doesn't open, install it first, then tap your invite link again."
+    },
+    ar: {
+      dir:'rtl', lang:'ar', btnLabel:'English',
+      wm:'جمعية', tag:'جمعيات المال، بعدالة وشفافية',
+      title:'تمت دعوتك للانضمام إلى جمعية!',
+      sub:'قام أحدهم بإضافتك إلى جمعيته في تطبيق جمعية. افتح التطبيق لقبول الدعوة.',
+      open:'افتح تطبيق جمعية', store:'حمّل التطبيق من App Store',
+      hint:'إذا لم يفتح التطبيق، قم بتثبيته أولاً ثم اضغط على رابط الدعوة مرة أخرى.'
+    }
+  };
+  var cur = (navigator.language || '').toLowerCase().indexOf('ar') === 0 ? 'ar' : 'en';
+  function apply() {
+    var s = strings[cur];
+    document.documentElement.setAttribute('dir', s.dir);
+    document.documentElement.setAttribute('lang', s.lang);
+    document.getElementById('langBtn').textContent = s.btnLabel;
+    document.getElementById('wm').textContent = s.wm;
+    document.getElementById('tag').textContent = s.tag;
+    document.getElementById('title').textContent = s.title;
+    document.getElementById('sub').textContent = s.sub;
+    document.getElementById('openBtn').textContent = s.open;
+    document.getElementById('storeBtn').textContent = s.store;
+    document.getElementById('hint').textContent = s.hint;
+  }
+  function toggleLang(){ cur = cur === 'en' ? 'ar' : 'en'; apply(); }
+  apply();
+</script>
+</body>
+</html>
