@@ -1,0 +1,15 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.jameyya.app",
+      "sha256_cert_fingerprints": [
+        "34:FA:BE:C6:90:C6:DE:03:77:3D:38:00:A8:2B:35:E3:66:36:40:E1:59:C0:32:DF:EF:A7:13:36:CB:74:6B:0D",
+        "CC:9B:78:BB:74:25:F8:81:F9:D5:65:A2:50:D0:02:30:6A:AC:0B:CC:28:37:43:94:94:74:53:7E:61:EF:C3:DE"
+      ]
+    }
+  }
+]
