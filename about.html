@@ -1,0 +1,282 @@
+TEST-LINE-123<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About — Jameyya</title>
+<meta name="description" content="Who is behind Jameyya, why it exists, and what it is not. Built in Abu Dhabi, United Arab Emirates." />
+<meta property="og:title" content="About — Jameyya" />
+<meta property="og:description" content="Who is behind Jameyya, why it exists, and what it is not." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://jameyya.com/about.html" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23F6F1E7'/%3E%3Crect x='23' y='31' width='38' height='38' rx='8.4' transform='rotate(45 42 50)' fill='%230D9488'/%3E%3Crect x='39' y='31' width='38' height='38' rx='8.4' transform='rotate(45 60 50)' fill='%23F5B301'/%3E%3C/svg%3E" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --teal: #0D9488;
+    --teal-dark: #0F766E;
+    --teal-light: #CCFBF1;
+    --yellow: #F5B301;
+    --bg: #FAFAF9;
+    --text: #1C1917;
+    --text-muted: #57534E;
+    --border: #E7E5E4;
+    --white: #FFFFFF;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+  nav {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+    background: var(--white);
+  }
+  nav .container { display: flex; align-items: center; justify-content: space-between; }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    font-size: 22px;
+    color: var(--teal);
+    text-decoration: none;
+  }
+  .logo-mark { width: 36px; height: 36px; display: block; flex-shrink: 0; }
+  .back-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .back-link:hover { color: var(--teal); }
+  main { padding: 60px 0; }
+  h1 {
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+  }
+  .intro {
+    font-size: 18px;
+    color: var(--text-muted);
+    margin-bottom: 44px;
+  }
+  h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-top: 40px;
+    margin-bottom: 14px;
+    color: var(--teal-dark);
+  }
+  p { margin-bottom: 16px; }
+  p.muted { color: var(--text-muted); }
+  ul.plain { list-style: none; margin: 0 0 16px; }
+  ul.plain li {
+    position: relative;
+    padding-left: 26px;
+    margin-bottom: 10px;
+    color: var(--text-muted);
+  }
+  ul.plain li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 11px;
+    width: 9px;
+    height: 9px;
+    border-radius: 2px;
+    background: var(--teal);
+    transform: rotate(45deg);
+  }
+  .founder {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    margin-top: 8px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  .avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--teal) 0%, var(--yellow) 100%);
+    color: var(--white);
+    font-weight: 800;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    letter-spacing: 0.5px;
+  }
+  .founder-body { flex: 1; min-width: 240px; }
+  .founder-body h3 { font-size: 18px; font-weight: 700; margin-bottom: 2px; }
+  .founder-role {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+  .founder-body p { font-size: 15px; color: var(--text-muted); margin-bottom: 12px; }
+  .founder-links a {
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-right: 16px;
+  }
+  .notice {
+    background: linear-gradient(135deg, var(--teal-light) 0%, #f0fdfa 100%);
+    border-radius: 16px;
+    padding: 26px;
+    margin-top: 12px;
+  }
+  .notice h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--teal-dark);
+    margin-bottom: 10px;
+  }
+  .notice p { font-size: 15px; margin-bottom: 0; }
+  .facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 14px;
+    margin-top: 12px;
+  }
+  .fact {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px;
+  }
+  .fact span {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+  .fact strong { font-size: 15px; font-weight: 700; }
+  .contact-card {
+    background: linear-gradient(135deg, var(--teal-light) 0%, #f0fdfa 100%);
+    padding: 32px;
+    border-radius: 20px;
+    text-align: center;
+    margin-top: 44px;
+  }
+  .contact-card h2 { margin-top: 0; }
+  .contact-btn {
+    display: inline-block;
+    padding: 14px 28px;
+    background: var(--teal);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  .contact-btn:hover { background: var(--teal-dark); transform: translateY(-1px); }
+  a { color: var(--teal); }
+  footer {
+    background: var(--text);
+    color: #A8A29E;
+    padding: 30px 0;
+    margin-top: 60px;
+    text-align: center;
+    font-size: 13px;
+  }
+  footer a { color: #A8A29E; text-decoration: none; margin: 0 12px; }
+  footer a:hover { color: #FACC15; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a href="/" class="logo">
+      <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><defs><clipPath id="lm_a"><rect x="43" y="33" width="34" height="34" rx="7.5" transform="rotate(45 60 50)"/></clipPath></defs><rect x="25" y="33" width="34" height="34" rx="7.5" transform="rotate(45 42 50)" fill="#0D9488"/><rect x="43" y="33" width="34" height="34" rx="7.5" transform="rotate(45 60 50)" fill="#F5B301"/><g clip-path="url(#lm_a)"><rect x="25" y="33" width="34" height="34" rx="7.5" transform="rotate(45 42 50)" fill="#115E59"/></g></svg>
+      Jameyya
+    </a>
+    <a href="/ar/about.html" class="back-link">العربية</a>
+  </div>
+</nav>
+
+<main>
+  <div class="container">
+    <h1>About Jameyya</h1>
+    <p class="intro">A small, independent product built in Abu Dhabi for a habit millions of people already have.</p>
+
+    <h2>Why it exists</h2>
+    <p>A jameyya — a money circle, or ROSCA — is how families, friends and colleagues across the region have saved together for generations. A group agrees a monthly amount, everyone contributes, and each month one member receives the pot.</p>
+    <p>The idea works. The administration doesn't. One organiser ends up tracking members, turn order, who has paid, who hasn't, whose turn is next and when each payout was received — often around a hundred payments across ten months — in a WhatsApp group and a spreadsheet. That work is invisible, unpaid and easy to get wrong.</p>
+    <p>Jameyya takes that work off their hands.</p>
+
+    <h2>What the app does</h2>
+    <ul class="plain">
+      <li>Members, turn order and cycle schedule in one shared place</li>
+      <li>Contribution tracking with a clear payment status for every member</li>
+      <li>Automatic reminders instead of chasing people</li>
+      <li>Payout confirmation from both sides</li>
+      <li>A full history the whole group can see, exportable at any time</li>
+      <li>Fully bilingual in Arabic and English, right-to-left by design</li>
+    </ul>
+
+    <h2>What it is not</h2>
+    <div class="notice">
+      <h3>Jameyya is a tracking tool, not a financial service.</h3>
+      <p>The app never holds, transfers, invests or processes money. Every payment happens directly between members, outside the app, exactly as it always has. The group keeps full control of its own funds — Jameyya only keeps the record straight.</p>
+    </div>
+
+    <h2>Who is behind it</h2>
+    <div class="founder">
+      <div class="avatar">YA</div>
+      <div class="founder-body">
+        <h3>Younis Elias Al Sulaimi</h3>
+        <div class="founder-role">Founder · Abu Dhabi, United Arab Emirates</div>
+        <p>Eighteen years delivering industrial and infrastructure projects — five in industrial design, thirteen in project and stakeholder management — and a lifetime around money circles run out of group chats and spreadsheets. Jameyya is the tool he wanted those organisers to have.</p>
+        <div class="founder-links">
+          <a href="https://www.linkedin.com/company/jameyya" target="_blank" rel="noopener">Jameyya on LinkedIn</a>
+          <a href="mailto:support@jameyya.com">support@jameyya.com</a>
+        </div>
+      </div>
+    </div>
+
+    <h2>The details</h2>
+    <div class="facts">
+      <div class="fact"><span>Founded</span><strong>2026</strong></div>
+      <div class="fact"><span>Based in</span><strong>Abu Dhabi, UAE</strong></div>
+      <div class="fact"><span>Team</span><strong>Independent, founder-led</strong></div>
+      <div class="fact"><span>Languages</span><strong>Arabic &amp; English</strong></div>
+    </div>
+
+    <div class="contact-card">
+      <h2>Questions, feedback, or partnerships</h2>
+      <p class="muted">Every email is read by a real person.</p>
+      <a href="mailto:support@jameyya.com" class="contact-btn">support@jameyya.com</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <a href="/">Home</a> ·
+    <a href="/about.html">About</a> ·
+    <a href="/privacy.html">Privacy</a> ·
+    <a href="/terms.html">Terms</a> ·
+    <a href="/support.html">Support</a> ·
+    <a href="/ar/about.html">العربية</a>
+    <p style="margin-top: 14px;">© 2026 Jameyya. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
