@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>من نحن — جمعية</title>
+<meta name="description" content="من يقف خلف تطبيق جمعية، ولماذا وُجد، وما الذي لا يفعله. صُنع في أبوظبي، الإمارات العربية المتحدة." />
+<meta property="og:title" content="من نحن — جمعية" />
+<meta property="og:description" content="من يقف خلف تطبيق جمعية، ولماذا وُجد، وما الذي لا يفعله." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://jameyya.com/ar/about.html" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23F6F1E7'/%3E%3Crect x='23' y='31' width='38' height='38' rx='8.4' transform='rotate(45 42 50)' fill='%230D9488'/%3E%3Crect x='39' y='31' width='38' height='38' rx='8.4' transform='rotate(45 60 50)' fill='%23F5B301'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --teal: #0D9488;
+    --teal-dark: #0F766E;
+    --teal-light: #CCFBF1;
+    --yellow: #F5B301;
+    --bg: #FAFAF9;
+    --text: #1C1917;
+    --text-muted: #57534E;
+    --border: #E7E5E4;
+    --white: #FFFFFF;
+  }
+  body {
+    font-family: "IBM Plex Sans Arabic", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+  nav {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+    background: var(--white);
+  }
+  nav .container { display: flex; align-items: center; justify-content: space-between; }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    font-size: 22px;
+    color: var(--teal);
+    text-decoration: none;
+  }
+  .logo-mark { width: 36px; height: 36px; display: block; flex-shrink: 0; }
+  .back-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .back-link:hover { color: var(--teal); }
+  main { padding: 60px 0; }
+  h1 {
+    font-size: 40px;
+    font-weight: 800;
+    margin-bottom: 14px;
+  }
+  .intro {
+    font-size: 18px;
+    color: var(--text-muted);
+    margin-bottom: 44px;
+  }
+  h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-top: 40px;
+    margin-bottom: 14px;
+    color: var(--teal-dark);
+  }
+  p { margin-bottom: 16px; }
+  p.muted { color: var(--text-muted); }
+  ul.plain { list-style: none; margin: 0 0 16px; }
+  ul.plain li {
+    position: relative;
+    padding-right: 26px;
+    margin-bottom: 10px;
+    color: var(--text-muted);
+  }
+  ul.plain li::before {
+    content: "";
+    position: absolute;
+    right: 4px;
+    top: 14px;
+    width: 9px;
+    height: 9px;
+    border-radius: 2px;
+    background: var(--teal);
+    transform: rotate(45deg);
+  }
+  .founder {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    margin-top: 8px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  .avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--teal) 0%, var(--yellow) 100%);
+    color: var(--white);
+    font-weight: 800;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .founder-body { flex: 1; min-width: 240px; }
+  .founder-body h3 { font-size: 18px; font-weight: 700; margin-bottom: 2px; }
+  .founder-role { font-size: 14px; color: var(--text-muted); margin-bottom: 12px; }
+  .founder-body p { font-size: 15px; color: var(--text-muted); margin-bottom: 12px; }
+  .founder-links a {
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 16px;
+  }
+  .notice {
+    background: linear-gradient(135deg, var(--teal-light) 0%, #f0fdfa 100%);
+    border-radius: 16px;
+    padding: 26px;
+    margin-top: 12px;
+  }
+  .notice h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--teal-dark);
+    margin-bottom: 10px;
+  }
+  .notice p { font-size: 15px; margin-bottom: 0; }
+  .facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 14px;
+    margin-top: 12px;
+  }
+  .fact {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px;
+  }
+  .fact span {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 0.02em;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+  .fact strong { font-size: 15px; font-weight: 700; }
+  .contact-card {
+    background: linear-gradient(135deg, var(--teal-light) 0%, #f0fdfa 100%);
+    padding: 32px;
+    border-radius: 20px;
+    text-align: center;
+    margin-top: 44px;
+  }
+  .contact-card h2 { margin-top: 0; }
+  .contact-btn {
+    display: inline-block;
+    padding: 14px 28px;
+    background: var(--teal);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  .contact-btn:hover { background: var(--teal-dark); transform: translateY(-1px); }
+  a { color: var(--teal); }
+  footer {
+    background: var(--text);
+    color: #A8A29E;
+    padding: 30px 0;
+    margin-top: 60px;
+    text-align: center;
+    font-size: 13px;
+  }
+  footer a { color: #A8A29E; text-decoration: none; margin: 0 12px; }
+  footer a:hover { color: #FACC15; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a href="/ar/" class="logo">
+      <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><defs><clipPath id="lm_a"><rect x="43" y="33" width="34" height="34" rx="7.5" transform="rotate(45 60 50)"/></clipPath></defs><rect x="25" y="33" width="34" height="34" rx="7.5" transform="rotate(45 42 50)" fill="#0D9488"/><rect x="43" y="33" width="34" height="34" rx="7.5" transform="rotate(45 60 50)" fill="#F5B301"/><g clip-path="url(#lm_a)"><rect x="25" y="33" width="34" height="34" rx="7.5" transform="rotate(45 42 50)" fill="#115E59"/></g></svg>
+      جمعية
+    </a>
+    <a href="/about.html" class="back-link">English</a>
+  </div>
+</nav>
+
+<main>
+  <div class="container">
+    <h1>من نحن</h1>
+    <p class="intro">منتج مستقل صغير، صُنع في أبوظبي، لعادة يمارسها ملايين الناس أصلاً.</p>
+
+    <h2>لماذا وُجد التطبيق</h2>
+    <p>الجمعية عادة ادّخار جماعي توارثتها العائلات والأصدقاء وزملاء العمل في المنطقة منذ أجيال: مجموعة تتفق على مبلغ شهري، يدفع الجميع، وفي كل شهر يستلم أحد الأعضاء المجموع.</p>
+    <p>الفكرة ناجحة، لكن إدارتها ليست كذلك. مشرف واحد يتابع الأعضاء، وترتيب الأدوار، ومن دفع ومن لم يدفع، ودور من هذا الشهر، ومتى استُلم كل مبلغ — قرابة مئة عملية دفع على مدى عشرة أشهر — داخل مجموعة واتساب وجدول إكسل. عمل غير مرئي، بلا مقابل، وسهل أن يقع فيه الخطأ.</p>
+    <p>جمعية يرفع هذا العبء عن كاهله.</p>
+
+    <h2>ماذا يفعل التطبيق</h2>
+    <ul class="plain">
+      <li>الأعضاء وترتيب الأدوار وجدول الدورة في مكان واحد مشترك</li>
+      <li>تتبّع المساهمات وحالة الدفع الواضحة لكل عضو</li>
+      <li>تذكيرات تلقائية بدل ملاحقة الأعضاء</li>
+      <li>تأكيد الاستلام من الطرفين</li>
+      <li>سجل كامل تراه المجموعة، وقابل للتصدير في أي وقت</li>
+      <li>عربي وإنجليزي بالكامل، بتصميم يدعم الاتجاه من اليمين إلى اليسار</li>
+    </ul>
+
+    <h2>ما الذي لا يفعله</h2>
+    <div class="notice">
+      <h3>جمعية أداة تتبّع، وليس خدمة مالية.</h3>
+      <p>التطبيق لا يحتفظ بالأموال ولا يحوّلها ولا يستثمرها ولا يعالج أي مدفوعات. كل عملية دفع تتم مباشرة بين الأعضاء خارج التطبيق، تماماً كما كانت دائماً. المجموعة تحتفظ بالسيطرة الكاملة على أموالها — ودور جمعية أن يبقي السجل دقيقاً.</p>
+    </div>
+
+    <h2>من يقف خلفه</h2>
+    <div class="founder">
+      <div class="avatar">ي</div>
+      <div class="founder-body">
+        <h3>يونس إلياس السليمي</h3>
+        <div class="founder-role">المؤسس · أبوظبي، الإمارات العربية المتحدة</div>
+        <p>ثمانية عشر عاماً في تنفيذ المشاريع الصناعية والبنية التحتية — خمسة في التصميم الصناعي وثلاثة عشر في إدارة المشاريع وأصحاب المصلحة — وعمرٌ كامل بين جمعيات تُدار من مجموعات المحادثة وجداول الإكسل. جمعية هو الأداة التي تمنّى لو كانت بين أيدي أولئك المشرفين.</p>
+        <div class="founder-links">
+          <a href="https://www.linkedin.com/company/jameyya" target="_blank" rel="noopener">جمعية على LinkedIn</a>
+          <a href="mailto:support@jameyya.com">support@jameyya.com</a>
+        </div>
+      </div>
+    </div>
+
+    <h2>تفاصيل سريعة</h2>
+    <div class="facts">
+      <div class="fact"><span>سنة التأسيس</span><strong>٢٠٢٦</strong></div>
+      <div class="fact"><span>المقر</span><strong>أبوظبي، الإمارات</strong></div>
+      <div class="fact"><span>الفريق</span><strong>مستقل، يقوده مؤسسه</strong></div>
+      <div class="fact"><span>اللغات</span><strong>العربية والإنجليزية</strong></div>
+    </div>
+
+    <div class="contact-card">
+      <h2>سؤال أو ملاحظة أو شراكة</h2>
+      <p class="muted">كل رسالة يقرأها شخص حقيقي.</p>
+      <a href="mailto:support@jameyya.com" class="contact-btn">support@jameyya.com</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <a href="/ar/">الرئيسية</a> ·
+    <a href="/ar/about.html">من نحن</a> ·
+    <a href="/ar/privacy.html">الخصوصية</a> ·
+    <a href="/ar/terms.html">الشروط</a> ·
+    <a href="/ar/support.html">الدعم</a> ·
+    <a href="/about.html">English</a>
+    <p style="margin-top: 14px;">© ٢٠٢٦ جمعية. جميع الحقوق محفوظة.</p>
+  </div>
+</footer>
+
+</body>
+</html>
