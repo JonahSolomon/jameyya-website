@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Get Jameyya - جمعية</title>
+  <meta name="robots" content="noindex" />
+  <style>
+    body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #F7F5F0; color: #0B3B36; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Arabic", sans-serif; text-align: center; padding: 24px; }
+    .card { max-width: 420px; }
+    h1 { font-size: 1.6rem; margin: 0 0 8px; }
+    p { color: #3D5A55; line-height: 1.6; }
+    .btn { display: inline-block; margin: 8px 6px 0; padding: 14px 22px; border-radius: 12px; background: #0E6E63; color: #fff; text-decoration: none; font-weight: 600; }
+    .btn.secondary { background: transparent; color: #0E6E63; border: 1.5px solid #0E6E63; }
+    .muted { font-size: .85rem; color: #7A8C88; margin-top: 20px; }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Jameyya &mdash; جمعية</h1>
+    <p id="msg">Taking you to the app&hellip; &middot; جارٍ تحويلك إلى التطبيق&hellip;</p>
+    <p>
+      <a class="btn" href="https://apps.apple.com/app/id6786646295">App Store</a>
+      <a class="btn" href="https://play.google.com/store/apps/details?id=com.jameyya.app">Google Play</a>
+      <a class="btn secondary" href="https://jameyya.com">jameyya.com</a>
+    </p>
+      <p class="muted">Organize your money pool - contributions, turns and payouts, all clear.<br/>نظّم جمعيتك - الاشتراكات والأدوار والقبض، كل شيء واضح.</p>
+    </div>
+    <script>
+      (function () {
+        var ua = navigator.userAgent || "";
+        var ios = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+        var android = /Android/i.test(ua);
+        var dest = null;
+        if (ios) dest = "https://apps.apple.com/app/id6786646295";
+        else if (android) dest = "https://play.google.com/store/apps/details?id=com.jameyya.app";
+        if (dest) { setTimeout(function () { window.location.replace(dest); }, 350); }
+        else { document.getElementById("msg").textContent = "Get Jameyya on your phone · حمّل تطبيق جمعية على هاتفك"; }
+      })();
+    </script>
+  </body>
+</html>
+    </script>
+    </p></h1>
+  </body>
+  </style></title>
+  </head>
