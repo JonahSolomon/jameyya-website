@@ -1,0 +1,40 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "D9BF3XHQP3.com.jameyya.app",
+        "appIDs": ["D9BF3XHQP3.com.jameyya.app"],
+        "paths": [
+          "/join",
+          "/join/",
+          "/join/*",
+          "/get",
+          "/get/",
+          "/get/*"
+        ],
+        "components": [
+          {
+            "/": "/join/*",
+            "comment": "Pool invite links, including /join/?c=CODE"
+          },
+          {
+            "/": "/join",
+            "comment": "Invite landing without trailing path"
+          },
+          {
+            "/": "/get/*",
+            "comment": "App download page"
+          },
+          {
+            "/": "/get",
+            "comment": "App download page without trailing path"
+          }
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": ["D9BF3XHQP3.com.jameyya.app"]
+  }
+}
