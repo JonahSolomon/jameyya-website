@@ -20,32 +20,49 @@
   html[dir="rtl"] body{font-family:'Tajawal','Rubik',Tahoma,sans-serif;}
   .card{max-width:420px; width:100%;}
   .mark{display:flex; justify-content:center; margin-bottom:20px;}
+  .diamonds{width:72px; height:72px;}
   .wordmark{font-size:34px; font-weight:700; color:var(--deep); letter-spacing:.5px; margin-bottom:6px;}
   .tag{font-size:15px; color:var(--teal); margin-bottom:28px;}
   h1{font-size:22px; font-weight:600; margin-bottom:10px;}
-  p.sub{font-size:15px; line-height:1.6; color:#3d5652; margin-bottom:28px;}
+  p.sub{font-size:15px; line-height:1.6; color:#3d5652; margin-bottom:24px;}
   .btn{
     display:block; width:100%; padding:16px; border-radius:14px; border:none;
     font-size:17px; font-weight:600; cursor:pointer; text-decoration:none;
-    font-family:inherit;
+    font-family:inherit; margin-bottom:12px;
   }
-  .btn-primary{background:var(--teal); color:#fff; margin-bottom:12px;}
+  .btn-primary{background:var(--teal); color:#fff;}
   .btn-primary:active{background:var(--deep);}
-  .btn-secondary{background:transparent; color:var(--deep); border:2px solid var(--teal); margin-bottom:24px;}
-  .hint{font-size:13px; color:#6b807c;}
+  .btn-secondary{background:transparent; color:var(--deep); border:2px solid var(--teal);}
+  .stores{display:none;}
+  .stores.show{display:block;}
+  .code-wrap{
+    background:#fff; border:1px solid #e2ded2; border-radius:14px;
+    padding:14px 16px; margin-bottom:20px; display:none;
+  }
+  .code-wrap.show{display:block;}
+  .code-label{font-size:12px; color:#6b807c; margin-bottom:6px; letter-spacing:.4px; text-transform:uppercase;}
+  .code-row{display:flex; align-items:center; justify-content:center; gap:10px;}
+  .code-val{
+    font-size:22px; font-weight:700; color:var(--deep); letter-spacing:2px;
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace; direction:ltr; unicode-bidi:isolate;
+  }
+  .copy{
+    background:transparent; border:1px solid var(--teal); color:var(--teal);
+    border-radius:10px; padding:6px 12px; font-size:13px; cursor:pointer; font-family:inherit;
+  }
+  .copy:active{background:var(--teal); color:#fff;}
+  .hint{font-size:13px; color:#6b807c; line-height:1.6;}
   .lang{
     position:fixed; top:18px; inset-inline-end:18px; background:transparent;
     border:1px solid var(--teal); color:var(--teal); border-radius:20px;
     padding:6px 14px; font-size:13px; cursor:pointer; font-family:inherit;
   }
-  .diamonds{width:72px; height:72px;}
 </style>
 </head>
 <body>
 <button class="lang" id="langBtn" onclick="toggleLang()">عربي</button>
 <div class="card">
   <div class="mark">
-    <!-- Simple two-diamond motif (placeholder, not the locked BrandMark geometry) -->
     <svg class="diamonds" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <rect x="14" y="26" width="46" height="46" rx="10" transform="rotate(45 37 49)" fill="#0D9488"/>
       <rect x="40" y="26" width="46" height="46" rx="10" transform="rotate(45 63 49)" fill="#F5B301"/>
@@ -56,25 +73,119 @@
   <div class="tag" id="tag">Money pools, fairly rotated</div>
   <h1 id="title">You're invited to join a jameyya!</h1>
   <p class="sub" id="sub">Someone added you to their money pool on Jameyya. Open the app to accept your invitation.</p>
+
+  <div class="code-wrap" id="codeWrap">
+    <div class="code-label" id="codeLabel">Invite code</div>
+    <div class="code-row">
+      <span class="code-val" id="codeVal"></span>
+      <button class="copy" id="copyBtn" onclick="copyCode()">Copy</button>
+    </div>
+  </div>
+
   <a class="btn btn-primary" id="openBtn" href="#">Open in Jameyya</a>
-  <a class="btn btn-secondary" id="storeBtn" href="https://apps.apple.com/app/id6786646295">Download on the App Store</a>
+
+  <!-- Single store button on mobile; both on desktop/unknown -->
+  <a class="btn btn-secondary" id="storeBtn" href="#">Get the app</a>
+  <div class="stores" id="storesBoth">
+    <a class="btn btn-secondary" id="iosBtn" href="https://apps.apple.com/app/id6786646295">Download on the App Store</a>
+    <a class="btn btn-secondary" id="androidBtn" href="https://play.google.com/store/apps/details?id=com.jameyya.app">Get it on Google Play</a>
+  </div>
+
   <div class="hint" id="hint">If the app doesn't open, install it first, then tap your invite link again.</div>
 </div>
+
 <script>
-  var code = new URLSearchParams(location.search).get('c') || '';
+(function () {
+  var IOS_URL = 'https://apps.apple.com/app/id6786646295';
+  var PLAY_URL = 'https://play.google.com/store/apps/details?id=com.jameyya.app';
+
+  var ua = navigator.userAgent || '';
+  var isIOS = /iPhone|iPad|iPod/i.test(ua) ||
+              (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  var isAndroid = /Android/i.test(ua);
+  var platform = isIOS ? 'ios' : (isAndroid ? 'android' : 'other');
+
+  var code = (new URLSearchParams(location.search).get('c') || '').trim();
   var deepLink = 'jameyya://join/' + encodeURIComponent(code);
-  document.getElementById('openBtn').setAttribute('href', deepLink);
 
-  // Auto-attempt to open the app (works when installed; silently fails otherwise)
-  if (code) { setTimeout(function(){ window.location.href = deepLink; }, 400); }
+  var openBtn = document.getElementById('openBtn');
+  var storeBtn = document.getElementById('storeBtn');
+  var storesBoth = document.getElementById('storesBoth');
+  var codeWrap = document.getElementById('codeWrap');
 
+  openBtn.setAttribute('href', deepLink);
+
+  // ---- store button: the right one per platform, both on desktop ----
+  if (platform === 'ios') {
+    storeBtn.setAttribute('href', IOS_URL);
+  } else if (platform === 'android') {
+    storeBtn.setAttribute('href', PLAY_URL);
+  } else {
+    storeBtn.style.display = 'none';
+    storesBoth.classList.add('show');
+  }
+
+  // ---- invite code ----
+  if (code) {
+    document.getElementById('codeVal').textContent = code;
+    codeWrap.classList.add('show');
+  }
+
+  window.copyCode = function () {
+    var done = function () {
+      var b = document.getElementById('copyBtn');
+      b.textContent = strings[cur].copied;
+      setTimeout(function () { b.textContent = strings[cur].copy; }, 1600);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(code).then(done).catch(function () {});
+    } else {
+      var t = document.createElement('textarea');
+      t.value = code; document.body.appendChild(t); t.select();
+      try { document.execCommand('copy'); done(); } catch (e) {}
+      document.body.removeChild(t);
+    }
+  };
+
+  // ---- try to open the app, fall back to the CORRECT store ----
+  // Only on mobile, only when we have a code, and only if the page is still
+  // visible after the attempt (if the app opened, the page is backgrounded).
+  if (code && platform !== 'other') {
+    var storeUrl = platform === 'ios' ? IOS_URL : PLAY_URL;
+    var bailed = false;
+    var bail = function () { bailed = true; };
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) bail();
+    });
+    window.addEventListener('pagehide', bail);
+    window.addEventListener('blur', bail);
+
+    setTimeout(function () {
+      var iframe = document.createElement('iframe');
+      iframe.style.display = 'none';
+      iframe.src = deepLink;
+      document.body.appendChild(iframe);
+      // Safari ignores iframe schemes — set location too.
+      if (platform === 'ios') { window.location.href = deepLink; }
+    }, 300);
+
+    setTimeout(function () {
+      if (!bailed && !document.hidden) { window.location.replace(storeUrl); }
+    }, 2200);
+  }
+
+  // ---- bilingual ----
   var strings = {
     en: {
       dir:'ltr', lang:'en', btnLabel:'عربي',
       wm:'Jameyya', tag:'Money pools, fairly rotated',
       title:"You're invited to join a jameyya!",
       sub:'Someone added you to their money pool on Jameyya. Open the app to accept your invitation.',
-      open:'Open in Jameyya', store:'Download on the App Store',
+      open:'Open in Jameyya',
+      storeIos:'Download on the App Store',
+      storeAndroid:'Get it on Google Play',
+      storeGeneric:'Get the app',
+      codeLabel:'Invite code', copy:'Copy', copied:'Copied',
       hint:"If the app doesn't open, install it first, then tap your invite link again."
     },
     ar: {
@@ -82,11 +193,17 @@
       wm:'جمعية', tag:'جمعيات المال، بعدالة وشفافية',
       title:'تمت دعوتك للانضمام إلى جمعية!',
       sub:'قام أحدهم بإضافتك إلى جمعيته في تطبيق جمعية. افتح التطبيق لقبول الدعوة.',
-      open:'افتح تطبيق جمعية', store:'حمّل التطبيق من App Store',
+      open:'افتح تطبيق جمعية',
+      storeIos:'حمّل التطبيق من App Store',
+      storeAndroid:'حمّل التطبيق من Google Play',
+      storeGeneric:'حمّل التطبيق',
+      codeLabel:'رمز الدعوة', copy:'نسخ', copied:'تم النسخ',
       hint:'إذا لم يفتح التطبيق، قم بتثبيته أولاً ثم اضغط على رابط الدعوة مرة أخرى.'
     }
   };
+
   var cur = (navigator.language || '').toLowerCase().indexOf('ar') === 0 ? 'ar' : 'en';
+
   function apply() {
     var s = strings[cur];
     document.documentElement.setAttribute('dir', s.dir);
@@ -97,11 +214,19 @@
     document.getElementById('title').textContent = s.title;
     document.getElementById('sub').textContent = s.sub;
     document.getElementById('openBtn').textContent = s.open;
-    document.getElementById('storeBtn').textContent = s.store;
+    document.getElementById('codeLabel').textContent = s.codeLabel;
+    document.getElementById('copyBtn').textContent = s.copy;
     document.getElementById('hint').textContent = s.hint;
+    document.getElementById('iosBtn').textContent = s.storeIos;
+    document.getElementById('androidBtn').textContent = s.storeAndroid;
+    storeBtn.textContent = platform === 'ios' ? s.storeIos
+                        : platform === 'android' ? s.storeAndroid
+                        : s.storeGeneric;
   }
-  function toggleLang(){ cur = cur === 'en' ? 'ar' : 'en'; apply(); }
+
+  window.toggleLang = function () { cur = (cur === 'en' ? 'ar' : 'en'); apply(); };
   apply();
+})();
 </script>
 </body>
 </html>
